@@ -14,7 +14,7 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: XJArsen' blog # the main title
+title: 这个式姐不太冷 # the main title
 
 tagline: 还没想好写些什么... # it will display as the sub-title
 
@@ -34,7 +34,7 @@ github:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: 这个式姐不太冷
+  name: XJArsen
   email: xjarsen@qq.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
