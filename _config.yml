@@ -16,7 +16,7 @@ timezone: Asia/Shanghai
 
 title: 这个式姐不太冷 # the main title
 
-tagline: 还没想好写些什么... # it will display as the sub-title
+tagline: 一只欢迎各位的来探讨内容的菜狗 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
