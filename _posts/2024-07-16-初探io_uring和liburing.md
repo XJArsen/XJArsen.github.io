@@ -88,7 +88,6 @@ find / -name "liburing.so*" 2>/dev/null
 struct io_uring
 
 ```c
-
 struct io_uring {
 	struct io_uring_sq sq;	// 提交队列
 	struct io_uring_cq cq;	// 完成队列
