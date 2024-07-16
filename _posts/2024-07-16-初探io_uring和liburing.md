@@ -9,21 +9,21 @@ mermaid: true
 pin: true
 ---
 
-# 初探io_uring和liburing
+> 最近有关注到io_uring，那就以它作为第一篇正式blog。
 
-最近有关注到io_uring，那就以它作为第一篇正式blog。
+# 起因
 
 先总结一下性能吧：根据互联网资料，主要优势在磁盘I/O方面。虽然在网络I/O方面，相较于基于epoll的非阻塞同步IO提升其实很小，但个人认为io_uring相对而言发展空间更大。计划待后续逐渐掌握了再进行个人的测试。
 
 
 
-## io_uring
+# io_uring
 
 `io_uring` 是 2019 年 **Linux 5.1** 内核首次引入的高性能 **异步 I/O 框架**，能加速I/O密集型应用的性能。关于Linux的异步I/O此前用的是主要是AIO，在网络编程方面会使用ASIO。
 
 
 
-### 核心数据结构
+## 核心数据结构
 
 每个io_uring都有两个环形队列，在内核态和用户态共享。
 
@@ -40,7 +40,7 @@ pin: true
 
 具体的数据索引方式比较负载暂不做探讨
 
-### 高效原理
+## 高效原理
 
 高效主要在以下几个大方面：
 
@@ -53,14 +53,14 @@ pin: true
 
 
 
-## liburing
+# liburing
 
 `liburing`是io_uring的用户态库，便于io_uring的使用。
 
 > 仓库地址：[axboe/liburing at liburing-2.6 (github.com)](https://github.com/axboe/liburing/tree/liburing-2.6)
 > API手册：[Manpages of liburing-dev in Debian unstable — Debian Manpages](https://manpages.debian.org/unstable/liburing-dev/index.html)
 
-### 安装与编译
+## 安装与编译
 
 ```shell
 # 拉取仓库
@@ -83,7 +83,7 @@ find / -name "liburing.so*" 2>/dev/null
 
 
 
-### 数据结构
+## 数据结构
 
 struct io_uring
 
@@ -102,9 +102,9 @@ struct io_uring {
 };
 ```
 
-### API
+## API
 
-#### io_uring_queue_init
+### io_uring_queue_init
 
 ```c
 // 初始化一个io_uring实例
@@ -121,7 +121,7 @@ io_uring_queue_exit(&ring);
 
 
 
-#### io_uring_register_files
+### io_uring_register_files
 
 ```c
 // 注册用于异步 I/O 的文件或用户缓冲区
@@ -132,7 +132,7 @@ int io_uring_register(unsigned int fd, unsigned int opcode, void *arg, unsigned 
 
 
 
-#### io_uring_get_sqe
+### io_uring_get_sqe
 
 ```c
 // 获取一个sqe,一般配合io_uring_prep_readv使用
@@ -144,7 +144,7 @@ struct io_uring_sqe *io_uring_get_sqe(struct io_uring *ring);
 
 
 
-#### io_uring_prep_($option)
+### io_uring_prep_($option)
 
 作用：将 sqe 提交到提交队列中
 相关的操作种类众多：read、write、send等
@@ -171,7 +171,7 @@ __u64 io_uring_cqe_get_data64(struct io_uring_cqe *cqe);
 
 
 
-#### io_uring_submit
+### io_uring_submit
 
 ```c
 // 通知 io_uring 从提交队列中消费 sqe
@@ -181,7 +181,7 @@ int io_uring_submit_and_get_events(struct io_uring *ring);
 
 
 
-#### io_uring_wait_cqe
+### io_uring_wait_cqe
 
 ```c
 // 阻塞直到有 cqe 返回
@@ -191,7 +191,7 @@ int io_uring_wait_cqe(struct io_uring *ring, struct io_uring_cqe **cqe_ptr);
 
 
 
-#### io_uring_peek_cqe
+### io_uring_peek_cqe
 
 ```c
 // 非阻塞 如果没有就绪的 cqe，则直接报错返回
@@ -200,7 +200,7 @@ int io_uring_peek_cqe(struct io_uring *ring, struct io_uring_cqe **cqe_ptr);
 
 
 
-#### io_uring_cqe_seen
+### io_uring_cqe_seen
 
 ```c
 //  更新io_uring 实例的完成队列
@@ -215,7 +215,7 @@ void io_uring_cqe_seen(struct io_uring *ring, struct io_uring_cqe *cqe);
 
 unixism：[Welcome to Lord of the io_uring — Lord of the io_uring documentation (unixism.net)](https://unixism.net/loti/)
 
-## 参考资料
+# Reference
 
 [[译\] Linux 异步 I/O 框架 io_uring：基本原理、程序示例与性能压测（2020） (arthurchiao.art)](https://arthurchiao.art/blog/intro-to-io-uring-zh/)
 
