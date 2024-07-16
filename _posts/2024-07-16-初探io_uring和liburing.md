@@ -6,7 +6,6 @@ tags: [linux]     # TAG names should always be lowercase
 
 math: true
 mermaid: true
-pin: true
 ---
 
 > 最近有关注到io_uring，那就以它作为第一篇正式blog。
