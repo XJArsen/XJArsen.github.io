@@ -16,7 +16,7 @@ timezone: Asia/Shanghai
 
 title: 这个式姐不太冷 # the main title
 
-tagline: waiting # it will display as the sub-title
+tagline: 请不要吝啬指正哦 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
