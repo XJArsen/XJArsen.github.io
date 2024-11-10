@@ -1,5 +1,5 @@
 ---
-title: C++内存序 std::memery_order
+title: C++内存序——std::memery_order
 date: 2024-11-10 20:00 +/-0800
 categories: [c++]
 tags: [c++]     # TAG names should always be lowercase
@@ -8,7 +8,7 @@ math: true
 mermaid: true
 ---
 
-在研究原子操作时，发现了此前未曾注意的内存访问顺序问题，简单做个笔记
+> 在研究原子操作时，发现了此前未曾注意的内存访问顺序问题，简单做个笔记
 
 # 简介
 标准库的内存序主要是`std::memory_order`，在` <atomic>` 中定义，用于控制多线程环境中原子操作的顺序。
