@@ -1,8 +1,8 @@
 ---
-title: C++内存序——std::memery_order
+title: 初探io_uring和liburing
 date: 2024-11-10 20:00 +0800
-categories: [cpp]
-tags: [cpp]     # TAG names should always be lowercase
+categories: [I/O]
+tags: [linux]     # TAG names should always be lowercase
 
 math: true
 mermaid: true
