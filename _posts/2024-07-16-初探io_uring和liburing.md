@@ -1,5 +1,5 @@
 ---
-title: 初探io_uring和liburingcopy
+title: 初探io_uring和liburing
 date: 2024-7-16 21:00 +0800
 categories: [I/O]
 tags: [linux]     # TAG names should always be lowercase
