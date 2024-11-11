@@ -111,6 +111,11 @@ count.fetch_add(1, std::memory_order_acq_rel);
 // add r0, r0, #1;
 // store r0; // release
 ```
+
+## consume
+
+consume在主流编译器等同于acquire实现，而且即使在C++17中也不推荐使用，本文就不做介绍了。
+
 ## 对比seq_cst和acq_rel
 简单来说seq_cst比acq_rel更加严格，表现在
 * seq_cst 可以对任何操作进行指定。acq_rel 只是对 rmw 操作进行特化的 flag。使用范围就不一样。
